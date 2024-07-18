@@ -10,6 +10,7 @@ public class AiReply : MonoBehaviour
     public LLM llm;
     public GameObject messagePrefab;
     public GameObject targetArea;
+    public int waiting = 0;
 
     private TextMeshProUGUI _destinationTextArea;
 
@@ -26,6 +27,7 @@ public class AiReply : MonoBehaviour
         
         _ = llm.Chat(message, HandleReply);
     }
+    
 
     private void Awake()
     {

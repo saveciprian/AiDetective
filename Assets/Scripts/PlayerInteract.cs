@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
+    private Collider2D _interactableObject;
+    private IInteractable _interactable;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,11 +18,13 @@ public class PlayerInteract : MonoBehaviour
     void Update()
     {
         
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            _interactable.Interact();
+        }
     }
 
 
-    private Collider2D _interactableObject;
-    private IInteractable _interactable;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.transform.GetComponent<IInteractable>() != null)
@@ -34,10 +39,7 @@ public class PlayerInteract : MonoBehaviour
         if (other.transform.GetComponent<IInteractable>() == null && _interactable == null)
             return;
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            _interactable.Interact();
-        }
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
