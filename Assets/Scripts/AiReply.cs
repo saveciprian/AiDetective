@@ -12,6 +12,8 @@ public class AiReply : MonoBehaviour
     public GameObject playerMessagePrefab;
     public GameObject targetArea;
     public int waiting = 0;
+    public string InitialMessage;
+    public string CharacterName;
 
     private TextMeshProUGUI _destinationTextArea;
 
@@ -23,12 +25,7 @@ public class AiReply : MonoBehaviour
   
     void Game()
     {
-        string message = "Describe the following scene: a police woman is found dead in a dark alleyway, under neon lights. There is an eerie silence filling the air. People are lurking anxiously, waiting to see what will happen next";
-        
-        GameObject textArea = Instantiate(messagePrefab, targetArea.transform);
-        _destinationTextArea = textArea.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        
-        _ = llm.Chat(message, HandleReply);
+        NewAiMessage(InitialMessage);
     }
 
     public void AddMessage(GameObject prefabType, string inputMessage)
@@ -36,17 +33,29 @@ public class AiReply : MonoBehaviour
         GameObject newMessage = Instantiate(prefabType, targetArea.transform);
         TextMeshProUGUI _destinationMessage = newMessage.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         _destinationMessage.text = inputMessage;
+        NewAiMessage(inputMessage);
+    }
+
+    public void NewAiMessage(string newMessage)
+    {
+        llm.CancelRequests();  
+        GameObject textArea = Instantiate(messagePrefab, targetArea.transform);
+        textArea.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = CharacterName + ":";
+        _destinationTextArea = textArea.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        _ = llm.Chat(newMessage, HandleReply);
     }
     
 
     private void Awake()
     {
         Game();
+        InputManager.Instance.playerInConversation = true;
     }
 
     public void EndInteraction()
     {
         // llm.CancelRequests();
         gameObject.SetActive(false);
+        
     }
 }

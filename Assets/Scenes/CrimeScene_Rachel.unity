@@ -369,6 +369,7 @@ Transform:
   - {fileID: 1977189217}
   - {fileID: 755017501}
   - {fileID: 751205724}
+  - {fileID: 1468516060}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
@@ -713,9 +714,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 717043910}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &640694649
@@ -887,6 +888,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 36a7daa713e562d4aa7ee6f7ba34f436,
         type: 3}
+    - target: {fileID: 4198497000688480888, guid: 6aed852730a8e05469ecb827b230be8e,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198497000688480888, guid: 6aed852730a8e05469ecb827b230be8e,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198497000688480888, guid: 6aed852730a8e05469ecb827b230be8e,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1251415322}
+    - target: {fileID: 4198497000688480888, guid: 6aed852730a8e05469ecb827b230be8e,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198497000688480888, guid: 6aed852730a8e05469ecb827b230be8e,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: submitPlayerMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198497000688480888, guid: 6aed852730a8e05469ecb827b230be8e,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InteractableCharacter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198497000688480888, guid: 6aed852730a8e05469ecb827b230be8e,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4507517722402584715, guid: 6aed852730a8e05469ecb827b230be8e,
         type: 3}
       propertyPath: m_Color.b
@@ -1212,9 +1248,18 @@ MonoBehaviour:
   llm: {fileID: 1767976718}
   messagePrefab: {fileID: 3594537245769475791, guid: 0871c83f95cba25498ff39291a1a4428,
     type: 3}
-  playerMessagePrefab: {fileID: 0}
+  playerMessagePrefab: {fileID: 7253495881138506617, guid: ce87a21c2929ea04ebc7ecfd159de377,
+    type: 3}
   targetArea: {fileID: 647732041}
   waiting: 0
+  InitialMessage: 'Your name is William Jenkins. You''re a police officer that was
+    the first person to arrive to the crime scene. You''re situated in a dark alleyway
+    lit by purple neon lights. The victim is your colleague, Rachel Thompson. She
+    has no marks indicating struggle or foul play, yet she is laying there void of
+    life. Do not talk about yourself from the perspective of a narrator, but instead
+    talk directly to Detective Jameson: Say how this is such a sad thing that has
+    happened, and that we need to find out whoever did it. MAX 50 WORDS'
+  CharacterName: William Jenkins
 --- !u!1 &648852435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,7 +1555,7 @@ MonoBehaviour:
   anim: {fileID: 1975598769}
   _dialoguePanel: {fileID: 1030817987}
   CharacterDetails: {fileID: 11400000, guid: 41385f02783f5a142874555a96d4d127, type: 2}
-  playerInput: {fileID: 1427508116}
+  playerInput: {fileID: 0}
 --- !u!1 &728588607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,9 +1709,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 717043910}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -64}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &751205722
@@ -1685,7 +1730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &751205723
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -1924,7 +1969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &782303589
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2402,9 +2447,14 @@ MonoBehaviour:
   llm: {fileID: 1767976718}
   messagePrefab: {fileID: 3594537245769475791, guid: 0871c83f95cba25498ff39291a1a4428,
     type: 3}
-  playerMessagePrefab: {fileID: 0}
+  playerMessagePrefab: {fileID: 7253495881138506617, guid: ce87a21c2929ea04ebc7ecfd159de377,
+    type: 3}
   targetArea: {fileID: 1900322676}
   waiting: 0
+  InitialMessage: 'Describe the following scene: a police woman is found dead in
+    a dark alleyway, under neon lights. There is an eerie silence filling the air.
+    People are lurking anxiously, waiting to see what will happen next'
+  CharacterName: Narrator
 --- !u!114 &1030818000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2638,7 +2688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1182301357}
-  _dialoguePanel: {fileID: 1030817987}
+  _dialoguePanel: {fileID: 647732042}
   CharacterDetails: {fileID: 11400000, guid: 9320a06114c534e40ada3e77064b7ba2, type: 2}
   playerInput: {fileID: 647732039}
 --- !u!1 &1315046670
@@ -2725,18 +2775,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1783325062}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1427508116 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4198497000688480888, guid: 6aed852730a8e05469ecb827b230be8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 4609523944323960374}
+--- !u!1 &1468516059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1468516060}
+  - component: {fileID: 1468516061}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1468516060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468516059}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.9177616, y: 1.6485221, z: 0.034971595}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 244091741}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1468516061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468516059}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Script: {fileID: 11500000, guid: e20259c4952739243a5e84a2b7178bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInConversation: 0
 --- !u!1001 &1504729556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2897,7 +2980,7 @@ MonoBehaviour:
   ignoreEos: 0
   nKeep: -1
   stop: []
-  playerName: Detective Jameson
+  playerName: Detective
   AIName: Narrator
   prompt: You are a noir film narrator describing various incidents in  a mysterious
     fashion.
@@ -2948,8 +3031,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783325061}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.998419, y: 0.4815402, z: 0.19615331}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.82, y: 0.4815402, z: 0.19615331}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3626,13 +3709,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1966642413744093287, guid: 6aed852730a8e05469ecb827b230be8e,
         type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 360.3458
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966642413744093287, guid: 6aed852730a8e05469ecb827b230be8e,
+        type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 1966642413744093287, guid: 6aed852730a8e05469ecb827b230be8e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -435
+      value: -480.1729
       objectReference: {fileID: 0}
     - target: {fileID: 3371054931914788327, guid: 6aed852730a8e05469ecb827b230be8e,
         type: 3}
@@ -3803,22 +3891,22 @@ PrefabInstance:
     - target: {fileID: 7453654753615277133, guid: 6aed852730a8e05469ecb827b230be8e,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7453654753615277133, guid: 6aed852730a8e05469ecb827b230be8e,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7453654753615277133, guid: 6aed852730a8e05469ecb827b230be8e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 225
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7453654753615277133, guid: 6aed852730a8e05469ecb827b230be8e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -630
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8462977385348683132, guid: 6aed852730a8e05469ecb827b230be8e,
         type: 3}
@@ -3896,7 +3984,8 @@ PrefabInstance:
       value: 0.16078432
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6075023342490965340, guid: 6aed852730a8e05469ecb827b230be8e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6933008105645700843, guid: 6aed852730a8e05469ecb827b230be8e,

@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(InputManager.Instance.playerInConversation) return;
+
         Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
         if (m_Input.x < 0 && !_flipped)
         {

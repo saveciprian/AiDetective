@@ -9,6 +9,7 @@ public class ListenForClose : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             gameObject.SetActive(false);
+            InputManager.Instance.playerInConversation = false;
         }       
     }
 }
