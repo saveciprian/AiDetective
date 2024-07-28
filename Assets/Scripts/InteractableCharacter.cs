@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,13 @@ public class InteractableCharacter : MonoBehaviour, IInteractable
     public GameObject _dialoguePanel;
     private bool tooltipOn = false;
     public SO_CharacterPanel CharacterDetails;
+
+    public TMP_InputField playerInput;
+    private AiReply aiReply;
+
+    private void Start() {
+        aiReply = _dialoguePanel.GetComponent<AiReply>();
+    }
 
     public void StartInteraction()
     {
@@ -21,6 +29,8 @@ public class InteractableCharacter : MonoBehaviour, IInteractable
         {
             anim.SetBool("Visible", false);
         }
+
+        _dialoguePanel.GetComponent<AiReply>().EndInteraction();
     }
 
     public void Interact()
@@ -37,4 +47,16 @@ public class InteractableCharacter : MonoBehaviour, IInteractable
         anim.SetBool("Visible", false);
         _dialoguePanel.SetActive(true);
     }
+
+    public void submitPlayerMessage()
+    {
+        
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            _dialoguePanel.GetComponent<AiReply>().AddMessage(aiReply.playerMessagePrefab, playerInput.text);
+            playerInput.text = "";
+        }
+        
+    }
+
 }

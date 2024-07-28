@@ -9,17 +9,20 @@ public class AiReply : MonoBehaviour
 {
     public LLM llm;
     public GameObject messagePrefab;
+    public GameObject playerMessagePrefab;
     public GameObject targetArea;
     public int waiting = 0;
 
     private TextMeshProUGUI _destinationTextArea;
 
-    void HandleReply(string reply){
+    void HandleReply(string reply)
+    {
         // do something with the reply from the model
         _destinationTextArea.text = reply;
     }
   
-    void Game(){
+    void Game()
+    {
         string message = "Describe the following scene: a police woman is found dead in a dark alleyway, under neon lights. There is an eerie silence filling the air. People are lurking anxiously, waiting to see what will happen next";
         
         GameObject textArea = Instantiate(messagePrefab, targetArea.transform);
@@ -27,10 +30,23 @@ public class AiReply : MonoBehaviour
         
         _ = llm.Chat(message, HandleReply);
     }
+
+    public void AddMessage(GameObject prefabType, string inputMessage)
+    {
+        GameObject newMessage = Instantiate(prefabType, targetArea.transform);
+        TextMeshProUGUI _destinationMessage = newMessage.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        _destinationMessage.text = inputMessage;
+    }
     
 
     private void Awake()
     {
         Game();
+    }
+
+    public void EndInteraction()
+    {
+        // llm.CancelRequests();
+        gameObject.SetActive(false);
     }
 }
